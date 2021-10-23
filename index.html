@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <title>Budget Application</title>
+</head>
+
+<body onload='loadApp()'>
+    <!--header of budget available with total incomes and egresses -->
+    <div class='header'>
+        <div class='budget'>
+            <div class='budget_title'>
+                Budget available
+            </div>
+            <div class="budget_value" id='budget'>+ 2.000</div>
+            <div class="budget_income cleanStyles">
+                <div class="budget_income--text">Incomes</div>
+                <div class="right">
+                    <div class="budget_income--value" id='income'>+ 1.000</div>
+                    <div class="budget_income--percentage">&nbsp;</div>
+                </div>
+
+            </div>
+            <div class="budget_egress cleanStyles">
+                <div class="budget_egress--text">Egresses</div>
+                <div class="right cleanStyles">
+                    <div class="budget_egress--value" id='egress'>- 500</div>
+                    <div class="budget_egress--percentage" id='percentage'>45%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Form for add income or egress-->
+    <form action="" id='form' onsubmit="return false;">
+        <div class="add">
+            <div class="add_container">
+                <select name="" class='add_type' id="type">
+                    <option value="income" selected>
+                        +
+                    </option>
+                    <option value="egress">
+                        -
+                    </option>
+                </select>
+                <input type="text" class="add_description" id="description" placeholder='Add a description...' required="true">
+                <input type="number" class='add_value' id='value' placeholder="add value..." step="any" required="true">
+                <button class="add_btn" onclick="addData()">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="container cleanStyles">
+        <!--Explained incomes-->
+        <div class="income">
+            <h2 class='income_title'>Incomes</h2>
+            <div id='income-list'>
+                <div class="element cleanStyles">
+                    <div class="element_description">
+                        Salario
+                    </div>
+                    <div class="right cleanStyles">
+                        <div class="element_value">+ 1,500,000</div>
+                        <div class="element_delete">
+                            <button class="element_delete--btn">
+                                <ion-icon name="close-circle-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Explained egress-->
+        <div class="egress">
+            <h2 class='egress_title'>Egresses</h2>
+            <div id="egress-list">
+                <div class="element cleanStyles">
+                    <div class="element_description">Renta</div>
+                    <div class="right cleanStyles">
+                        <div class="element_value">- 900</div>
+                        <div class="element_percentage">20%</div>
+                        <div class="element_delete">
+                            <button class="element_delete--btn">
+                                <ion-icon name="close-circle-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='js/Data.js'></script>
+    <script src='js/Income.js'></script>
+    <script src='js/Egress.js'></script>
+    <script src='js/app.js'></script>
+</body>
+
+</html>
